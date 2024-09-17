@@ -2,8 +2,8 @@
 
 namespace KretaKlon;
 
-public partial class adminisztracio : Window {
-    public adminisztracio() {
+public partial class tantargy : Window {
+    public tantargy() {
         InitializeComponent();
     }
 }
