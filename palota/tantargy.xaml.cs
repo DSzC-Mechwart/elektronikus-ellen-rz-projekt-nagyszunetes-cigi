@@ -2,8 +2,8 @@
 
 namespace KretaKlon;
 
-public partial class nevezd_at : Window {
-    public nevezd_at() {
+public partial class tantargy : Window {
+    public tantargy() {
         InitializeComponent();
     }
 }
