@@ -5,7 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Grid Background="#424242">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
         
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <Label Grid.Row="1" Grid.Column="1" Content="Welcome!" FontWeight="Bold" FontSize="30" Foreground="White"/>
+        
+        <Button Grid.Row="3" Grid.Column="1" Content="Adminisztracio" Click="AdminButton_OnClick" Background="#424242" Foreground="White"/>
+        
+        <Button Grid.Row="5" Grid.Column="1" Content="Tantargyak" Click="TantargyakButton_OnClick" Background="#424242" Foreground="White"/>
+        
+        <Button Grid.Row="7" Grid.Column="1" Content="Jegyek" Click="JegyekButton_OnClick" Background="#424242" Foreground="White"/>
     </Grid>
 </Window>

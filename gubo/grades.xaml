@@ -3,10 +3,29 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:local="clr-namespace:KretaKlon"
         mc:Ignorable="d"
-        Title="grades" Height="450" Width="800">
-    <Grid>
+        Title="Jegyek" Height="450" Width="800">
+    <Grid Background="#424242">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
         
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <Label Grid.Row="1" Grid.Column="1" Content="Welcome!" FontWeight="Bold" FontSize="30" Foreground="White"/>
+        
+        <Button Grid.Row="3" Grid.Column="1" Content="Bevitel" Click="Bevitel_OnClick" Background="#424242" Foreground="White"/>
+        
+        <Button Grid.Row="5" Grid.Column="1" Content="Jegyek megtekintese" Click="Jegymegnezo_OnClick" Background="#424242" Foreground="White"/>
     </Grid>
 </Window>
