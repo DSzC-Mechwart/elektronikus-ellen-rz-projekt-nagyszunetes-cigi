@@ -11,6 +11,7 @@ namespace KretaKlon
 {
     public partial class tantargy : Window
     {
+        List<List<string>> tanuloEsTantargyLista = new List<List<string>>();
         private List<tantargyy> subjects = new List<tantargyy>();
         private List<Diak> diakok = new List<Diak>();
         private const string FilePathReadingStudents = "studentsInformation.csv";
@@ -156,8 +157,20 @@ namespace KretaKlon
         {
             var student = ((ComboBoxItem)cmbStudents.Items[cmbStudents.SelectedIndex]).Content.ToString();
             var subject = ((ComboBoxItem)cmbSubjectAssignment.Items[cmbSubjectAssignment.SelectedIndex]).Content.ToString();
-
+            tanuloEsTantargyLista.Add(new List<string> { student, subject });
             MessageBox.Show($"{subject} hozzárendelve {student}-hez.");
+            hozzarendelesKiiratas();
+        }
+
+        private void hozzarendelesKiiratas()
+        {
+            using (var writer = new StreamWriter(FilePathOutput))
+            {
+                foreach (var subject in tanuloEsTantargyLista)
+                {
+                    writer.WriteLine($"{subject[0]};{subject[1]};");
+                }
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -165,6 +178,8 @@ namespace KretaKlon
             new MainWindow().Show();
             Close();
         }
+
+
     }
 
     public class Diak
