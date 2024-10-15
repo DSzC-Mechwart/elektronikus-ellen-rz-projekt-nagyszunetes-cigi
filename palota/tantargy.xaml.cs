@@ -1,5 +1,7 @@
-﻿using System;
+using KretaKlon.gubo;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Windows;
@@ -10,23 +12,45 @@ namespace KretaKlon
     public partial class tantargy : Window
     {
         private List<tantargyy> subjects = new List<tantargyy>();
-        private const string FilePath = "subjects.txt";
+        private List<Diak> diakok = new List<Diak>();
+        private const string FilePathReadingStudents = "studentsInformation.csv";
+        private const string FilePath = "subjects.csv";
+        private const string FilePathOutput = "output.csv";
 
         public tantargy()
         {
             InitializeComponent();
             LoadSubjects();
+            LoadStudents();
             PopulateSubjectComboBox();
         }
 
-        private void LoadSubjects()
+        private void LoadStudents()
         {
-            if (!File.Exists(FilePath))
+            if (!File.Exists(FilePathReadingStudents))
             {
-             
-                File.Create(FilePath).Close();
+
+                File.Create(FilePathReadingStudents).Close();
             }
 
+            var lines = File.ReadAllLines(FilePathReadingStudents);
+            foreach (var line in lines)
+            {
+                var parts = line.Split(';');
+                diakok.Add(new Diak
+                {
+                    Nev = parts[0]
+                });
+            }
+            cmbStudents.Items.Clear();
+            foreach (var line in diakok)
+            {
+                cmbStudents.Items.Add(new ComboBoxItem { Content = line.Nev });
+            }
+        }
+
+        private void LoadSubjects() 
+        {
             var lines = File.ReadAllLines(FilePath);
             foreach (var line in lines)
             {
@@ -34,16 +58,17 @@ namespace KretaKlon
                 subjects.Add(new tantargyy
                 {
                     Name = parts[0],
-                    Grade = int.Parse(parts[1]),
+                    Grade = Convert.ToInt32(parts[1]),
                     Type = parts[2],
-                    HoursPerWeek = int.Parse(parts[3])
+                    HoursPerWeek = Convert.ToInt32(parts[3])
                 });
             }
         }
 
+
         private void PopulateSubjectComboBox()
         {
-            cmbSubjectAssignment.Items.Clear(); 
+            cmbSubjectAssignment.Items.Clear();
 
             foreach (var subject in subjects)
             {
@@ -63,7 +88,7 @@ namespace KretaKlon
 
             subjects.Add(subject);
             SaveSubjectsToFile();
-            PopulateSubjectComboBox(); 
+            PopulateSubjectComboBox();
             MessageBox.Show("Tantárgy mentve!");
         }
 
@@ -79,7 +104,7 @@ namespace KretaKlon
         }
 
 
-        
+
         private void DeleteSubject_Click(object sender, RoutedEventArgs e)
         {
             var subjectToDelete = subjects.FirstOrDefault(s => s.Name == txtSubjectName.Text);
@@ -95,7 +120,16 @@ namespace KretaKlon
             }
         }
 
-        
+        private void Mentes3feladathoz()
+        {
+            using (var writer = new StreamWriter(FilePathOutput))
+            {
+                foreach (var diak in diakok)
+                {
+                    writer.WriteLine($"{diak.Nev};");
+                }
+            }
+        }
         private void ShowReports_Click(object sender, RoutedEventArgs e)
         {
             var report = string.Empty;
@@ -117,7 +151,7 @@ namespace KretaKlon
             txtReports.Text = report;
         }
 
-        
+
         private void AssignSubject_Click(object sender, RoutedEventArgs e)
         {
             var student = ((ComboBoxItem)cmbStudents.Items[cmbStudents.SelectedIndex]).Content.ToString();
@@ -125,9 +159,19 @@ namespace KretaKlon
 
             MessageBox.Show($"{subject} hozzárendelve {student}-hez.");
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            new MainWindow().Show();
+            Close();
+        }
     }
 
-    
+    public class Diak
+    {
+        public string Nev;
+    }
+
     public class tantargyy
     {
         public string Name { get; set; }
@@ -136,7 +180,7 @@ namespace KretaKlon
         public int HoursPerWeek { get; set; }
         public int TotalHours => CalculateTotalHours();
 
-        
+
         private int CalculateTotalHours()
         {
             switch (Grade)
