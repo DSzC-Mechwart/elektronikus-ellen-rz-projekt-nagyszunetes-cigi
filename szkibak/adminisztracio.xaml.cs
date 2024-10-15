@@ -4,13 +4,13 @@ using System.IO;
 using System.Linq;
 using System.Windows;
 
-namespace StudentRegistration
+namespace KretaKlon
 {
-    public partial class MainWindow : Window
+    public partial class adminisztracio : Window
     {
         private List<Student> students = new List<Student>();
 
-        public MainWindow()
+        public adminisztracio()
         {
             InitializeComponent();
             LoadStudents();
@@ -139,6 +139,12 @@ namespace StudentRegistration
             {
                 MessageBox.Show("Select a student to delete.");
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            new MainWindow().Show();
+            Close();
         }
     }
 
