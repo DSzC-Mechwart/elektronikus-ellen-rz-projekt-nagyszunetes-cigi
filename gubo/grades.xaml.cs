@@ -17,4 +17,10 @@ public partial class grades {
         new gradeViewer().Show();
         Close();
     }
+
+    private void Button_Click(object sender, RoutedEventArgs e)
+    {
+        new MainWindow().Show();
+        Close();
+    }
 }

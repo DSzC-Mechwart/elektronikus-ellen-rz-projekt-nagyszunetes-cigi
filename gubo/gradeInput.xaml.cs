@@ -19,4 +19,15 @@ public partial class gradeInput {
     {
         e.Handled = !IsTextAllowed(e.Text);
     }
+
+    private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
+    {
+        new grades().Show();
+        Close();
+    }
+
+    private void Button_Click_1(object sender, System.Windows.RoutedEventArgs e)
+    {
+
+    }
 }

@@ -27,5 +27,7 @@
         <Button Grid.Row="3" Grid.Column="1" Content="Bevitel" Click="Bevitel_OnClick" Background="#424242" Foreground="White"/>
         
         <Button Grid.Row="5" Grid.Column="1" Content="Jegyek megtekintese" Click="Jegymegnezo_OnClick" Background="#424242" Foreground="White"/>
+
+        <Button Background="#424242" Foreground="White" Grid.Row="6" Grid.Column="0" Content="Vissza" Click="Button_Click"></Button>
     </Grid>
 </Window>
