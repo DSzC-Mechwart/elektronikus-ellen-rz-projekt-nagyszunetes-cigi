@@ -1,11 +1,72 @@
 ﻿<Window x:Class="KretaKlon.tantargy"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        mc:Ignorable="d"
-        Title="nevezd_at" Height="450" Width="800">
+        Title="Tantárgykezelő" Height="500" Width="800">
     <Grid>
-        
+        <TabControl>
+            
+            <TabItem Header="Tantárgy Felvitel">
+                <StackPanel Margin="10">
+                    <Grid>
+                        <TextBox x:Name="txtSubjectName" Width="200"/>
+                       
+                        <TextBlock Text="Tantárgy neve" 
+                                   Foreground="Gray"
+                                   VerticalAlignment="Center"
+                                   IsHitTestVisible="False"
+                                   Margin="5,0,0,0">
+                          
+                        </TextBlock>
+                    </Grid>
+
+                    <ComboBox x:Name="cmbGrade" Width="200">
+                        <ComboBoxItem Content="9" />
+                        <ComboBoxItem Content="10" />
+                        <ComboBoxItem Content="11" />
+                        <ComboBoxItem Content="12" />
+                        <ComboBoxItem Content="13" />
+                    </ComboBox>
+                    <ComboBox x:Name="cmbType" Width="200">
+                        <ComboBoxItem Content="Közismereti" />
+                        <ComboBoxItem Content="Szakmai" />
+                    </ComboBox>
+                    <TextBox x:Name="txtHoursPerWeek" Width="200" />
+                    
+                    <Grid>
+                        <TextBlock Text="Heti óraszám" 
+                                   Foreground="Gray"
+                                   VerticalAlignment="Center"
+                                   IsHitTestVisible="False"
+                                   Margin="5,0,0,0">
+                           
+                        </TextBlock>
+                    </Grid>
+
+                    <Button Content="Tantárgy Mentése" Click="SaveSubject_Click"/>
+                    <Button Content="Tantárgy Törlése" Click="DeleteSubject_Click"/>
+                </StackPanel>
+            </TabItem>
+
+            
+            <TabItem Header="Admin Kimutatások">
+                <StackPanel Margin="10">
+                    <Button Content="Kimutatások Megjelenítése" Click="ShowReports_Click"/>
+                    <TextBlock x:Name="txtReports" TextWrapping="Wrap" />
+                </StackPanel>
+            </TabItem>
+
+           
+            <TabItem Header="Tantárgy Hozzárendelés">
+                <StackPanel Margin="10">
+                    <ComboBox x:Name="cmbStudents" Width="200">
+                        <ComboBoxItem Content="Diák 1" />
+                        <ComboBoxItem Content="Diák 2" />
+                    </ComboBox>
+                    <ComboBox x:Name="cmbSubjectAssignment" Width="200"/>
+                    <Button Content="Tantárgy Hozzárendelése" Click="AssignSubject_Click"/>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+        <Button HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="100" Width="150" Content="Vissza" Click="Button_Click"></Button>
     </Grid>
 </Window>
