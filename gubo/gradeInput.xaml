@@ -23,7 +23,7 @@
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="0">
             <Label Foreground="White" Content="Jegy: "></Label>
-            <TextBox x:Name="jegyTextBox"/>
+            <TextBox x:Name="jegyTextBox" PreviewTextInput="FilterToOnlyNumbers_OnPreviewTextInput"/>
             <Label Foreground="White" Content="Tema: "></Label>
             <TextBox x:Name="temaTextBox"/>
             <Label Foreground="White" Content="Tipus: "></Label>

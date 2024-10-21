@@ -8,7 +8,7 @@ public partial class gradeInput {
         InitializeComponent();
     }
     
-    private static readonly Regex Regex = new("[^0-9]+");
+    private static readonly Regex Regex = MyRegex();
     
     private static bool IsTextAllowed(string text)
     {
@@ -30,4 +30,7 @@ public partial class gradeInput {
     {
 
     }
+
+    [GeneratedRegex("[^0-9]+")]
+    private static partial Regex MyRegex();
 }
