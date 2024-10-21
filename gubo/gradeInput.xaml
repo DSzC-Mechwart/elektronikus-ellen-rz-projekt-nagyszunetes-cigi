@@ -17,19 +17,26 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Grid.Column="0">
             <Label Content="Válassz egy tanulót: " FontWeight="Bold" FontSize="18" Foreground="White"></Label>
-            <ComboBox x:Name="tanuloComboBox" Background="#424242" Width="250" Height="20" HorizontalAlignment="Left"></ComboBox>
+            <ComboBox x:Name="tanuloComboBox" Background="#424242" Width="250" Height="20" HorizontalAlignment="Left" SelectionChanged="tanuloComboBox_SelectionChanged"></ComboBox>
             <Label Content="Válassz egy tantárgyat: " FontWeight="Bold" FontSize="18" Foreground="White"></Label>
             <ComboBox x:Name="tantargyComboBox" Background="#424242" Width="250" Height="20" HorizontalAlignment="Left"></ComboBox>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="0">
             <Label Foreground="White" Content="Jegy: "></Label>
             <TextBox x:Name="jegyTextBox" PreviewTextInput="FilterToOnlyNumbers_OnPreviewTextInput"/>
-            <Label Foreground="White" Content="Tema: "></Label>
+            <Label Foreground="White" Content="Tantárgy: "></Label>
             <TextBox x:Name="temaTextBox"/>
-            <Label Foreground="White" Content="Tipus: "></Label>
+            <Label Foreground="White" Content="Egyéb: "></Label>
             <TextBox x:Name="tipusTextBox"/>
         </StackPanel>
         <Button Grid.Column="0" Grid.Row="2" Background="#424242" Foreground="White" Content="Jegy bevitele" HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Width="100" Click="Button_Click_1"></Button>
         <Button Grid.Column="0" Grid.Row="2" Background="#424242" Foreground="White" Content="Vissza" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="50" Width="100" Click="Button_Click"></Button>
+        <DataGrid x:Name="jegyekDataGrid" Grid.Column="1" Grid.Row="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Jegy" Binding="{Binding Jegy}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Tantárgy" Binding="{Binding Theme}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Egyéb" Binding="{Binding GradeType}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>
