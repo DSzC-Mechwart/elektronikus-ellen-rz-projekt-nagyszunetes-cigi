@@ -9,10 +9,26 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
+        
+        <ComboBox Name="StudentChooser" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" SelectionChanged="StudentChooser_OnSelectionChanged">
+            <ComboBoxItem IsSelected="True" Content="Valassz diakot..."/>
+            <ComboBoxItem Content="Kis Pista"/>
+            <ComboBoxItem Content="Kukorica Janos"/>
+            <ComboBoxItem Content="Petofi Sandor"/>
+            <ComboBoxItem Content="Kossuth Lajos"/>
+        </ComboBox>
     </Grid>
 </Window>
