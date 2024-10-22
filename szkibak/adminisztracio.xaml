@@ -1,4 +1,4 @@
-<Window x:Class="StudentRegistration.MainWindow"
+<Window x:Class="KretaKlon.adminisztracio"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Student Registration" Height="450" Width="800">

@@ -52,9 +52,9 @@ namespace KretaKlon
         {
             using (var writer = new StreamWriter("studentsInformation.csv", true))
             {
-                writer.WriteLine($"{student.Name},{student.BirthPlace},{student.BirthDate:yyyy-MM-dd},{student.MotherName}," +
-                                 $"{student.Address},{student.EnrollmentDate:yyyy-MM-dd},{student.Major}," +
-                                 $"{student.ClassGroup},{student.IsBoarder},{student.Dormitory},{student.LogNumber}," +
+                writer.WriteLine($"{student.Name};{student.BirthPlace};{student.BirthDate:yyyy-MM-dd};{student.MotherName};" +
+                                 $"{student.Address};{student.EnrollmentDate:yyyy-MM-dd};{student.Major};" +
+                                 $"{student.ClassGroup};{student.IsBoarder};{student.Dormitory};{student.LogNumber};" +
                                  $"{student.RegNumber}");
             }
         }
