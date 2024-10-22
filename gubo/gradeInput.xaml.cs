@@ -26,9 +26,7 @@ public partial class gradeInput {
             
             if (i2 == 0)
             {
-                List<string> strings1 = new List<string>();
-                strings1.Add(parts[0]);
-                strings1.Add(parts[1]);
+                List<string> strings1 = [parts[0], parts[1]];
                 strings.Add(strings1);
                 i2++;
                 continue;
@@ -83,7 +81,7 @@ public partial class gradeInput {
     private void tanuloComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
     {
         Login login = new Login();
-        login.Tanulo = tanuloComboBox.SelectedItem.ToString();
+        login.Tanulo = tanuloComboBox.SelectedItem.ToString()!;
         login.Show();
         for (int i = tanuloComboBox.SelectedIndex; i == tanuloComboBox.SelectedIndex; i++)
         {
