@@ -3,51 +3,51 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Student Registration" Height="450" Width="800">
     <Grid>
-        <Label Content="Név" Margin="10,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Label Content="NÃ©v" Margin="10,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
         <TextBox x:Name="txtName" Margin="120,10,10,0" VerticalAlignment="Top" Width="200"/>
 
-        <Label Content="Születési hely" Margin="10,40,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Label Content="SzÃ¼letÃ©si hely" Margin="10,40,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
         <TextBox x:Name="txtBirthPlace" Margin="120,40,10,0" VerticalAlignment="Top" Width="200"/>
 
-        <Label Content="Születési idõ (YYYY-MM-DD)" Margin="10,70,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Label Content="SzÃ¼letÃ©si idÅ‘ (YYYY-MM-DD)" Margin="10,70,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
         <TextBox x:Name="txtBirthDate" Margin="120,70,10,0" VerticalAlignment="Top" Width="200"/>
 
         <Label Content="Anyja neve" Margin="10,100,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
         <TextBox x:Name="txtMotherName" Margin="120,100,10,0" VerticalAlignment="Top" Width="200"/>
 
-        <Label Content="Cím" Margin="10,130,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Label Content="CÃ­m" Margin="10,130,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
         <TextBox x:Name="txtAddress" Margin="120,130,10,0" VerticalAlignment="Top" Width="200"/>
 
-        <Label Content="Beiratkozás dátuma (YYYY-MM-DD)" Margin="10,160,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Label Content="BeiratkozÃ¡s dÃ¡tuma (YYYY-MM-DD)" Margin="10,160,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
         <TextBox x:Name="txtEnrollmentDate" Margin="120,160,10,0" VerticalAlignment="Top" Width="200"/>
 
         <Label Content="Szak" Margin="10,190,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
         <TextBox x:Name="txtMajor" Margin="120,190,10,0" VerticalAlignment="Top" Width="200"/>
 
-        <Label Content="Osztály" Margin="10,220,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Label Content="OsztÃ¡ly" Margin="10,220,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
         <TextBox x:Name="txtClassGroup" Margin="120,220,10,0" VerticalAlignment="Top" Width="200"/>
 
-        <Label Content="Kollégista-e?" Margin="10,250,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Label Content="KollÃ©gista-e?" Margin="10,250,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
         <CheckBox x:Name="chkIsBoarder" Margin="120,250,10,0" VerticalAlignment="Top"/>
 
-        <Label Content="Kollégium" Margin="10,280,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Label Content="KollÃ©gium" Margin="10,280,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
         <TextBox x:Name="txtDormitory" Margin="120,280,10,0" VerticalAlignment="Top" Width="200"/>
 
-        <Button Content="Tanuló hozzáadása" Margin="10,320,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Click="btnAddStudent_Click"/>
-        <Button Content="Tanuló törlése" Margin="120,320,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Click="btnDeleteStudent_Click"/>
+        <Button Content="TanulÃ³ hozzÃ¡adÃ¡sa" Margin="10,320,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Click="btnAddStudent_Click"/>
+        <Button Content="TanulÃ³ tÃ¶rlÃ©se" Margin="120,320,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Click="btnDeleteStudent_Click"/>
 
         <DataGrid x:Name="dataGridStudents" Margin="10,360,10,10" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Név" Binding="{Binding Name}"/>
-                <DataGridTextColumn Header="Születési hely" Binding="{Binding BirthPlace}"/>
-                <DataGridTextColumn Header="Születésinap" Binding="{Binding BirthDate}"/>
+                <DataGridTextColumn Header="NÃ©v" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="SzÃ¼letÃ©si hely" Binding="{Binding BirthPlace}"/>
+                <DataGridTextColumn Header="SzÃ¼letÃ©sinap" Binding="{Binding BirthDate}"/>
                 <DataGridTextColumn Header="Anyja neve" Binding="{Binding MotherName}"/>
-                <DataGridTextColumn Header="Cím" Binding="{Binding Address}"/>
-                <DataGridTextColumn Header="Beiratkozás dátuma" Binding="{Binding EnrollmentDate}"/>
+                <DataGridTextColumn Header="CÃ­m" Binding="{Binding Address}"/>
+                <DataGridTextColumn Header="BeiratkozÃ¡s dÃ¡tuma" Binding="{Binding EnrollmentDate}"/>
                 <DataGridTextColumn Header="Szak" Binding="{Binding Major}"/>
-                <DataGridTextColumn Header="Osztály" Binding="{Binding ClassGroup}"/>
-                <DataGridTextColumn Header="Kollégista-e" Binding="{Binding IsBoarder}"/>
-                <DataGridTextColumn Header="Kollégium" Binding="{Binding Dormitory}"/>
+                <DataGridTextColumn Header="OsztÃ¡ly" Binding="{Binding ClassGroup}"/>
+                <DataGridTextColumn Header="KollÃ©gista-e" Binding="{Binding IsBoarder}"/>
+                <DataGridTextColumn Header="KollÃ©gium" Binding="{Binding Dormitory}"/>
                 <DataGridTextColumn Header="Log Number" Binding="{Binding LogNumber}"/>
                 <DataGridTextColumn Header="Reg Number" Binding="{Binding RegNumber}"/>
             </DataGrid.Columns>
