@@ -52,6 +52,11 @@ namespace KretaKlon
 
         private void LoadSubjects() 
         {
+            if (!File.Exists(FilePath))
+            {
+
+                File.Create(FilePath).Close();
+            }
             var lines = File.ReadAllLines(FilePath);
             foreach (var line in lines)
             {
