@@ -13,7 +13,7 @@ namespace KretaKlon
     {
         List<List<string>> tanuloEsTantargyLista = new List<List<string>>();
         private List<tantargyy> subjects = new List<tantargyy>();
-        private List<Diak> diakok = new List<Diak>();
+        private List<diak> diakok = new List<diak>();
         private const string FilePathReadingStudents = "studentsInformation.csv";
         private const string FilePath = "subjects.csv";
         private const string FilePathOutput = "output.csv";
@@ -38,10 +38,7 @@ namespace KretaKlon
             foreach (var line in lines)
             {
                 var parts = line.Split(';');
-                diakok.Add(new Diak
-                {
-                    Nev = parts[0]
-                });
+                diakok.Add(new diak(parts[0]));
             }
             cmbStudents.Items.Clear();
             foreach (var line in diakok)
@@ -187,17 +184,16 @@ namespace KretaKlon
 
     }
 
-    public class Diak
-    {
-        public string Nev;
+    public class diak(string nev) {
+        public string Nev = nev;
     }
 
     public class tantargyy
     {
-        public string Name { get; set; }
-        public int Grade { get; set; }
-        public string Type { get; set; }
-        public int HoursPerWeek { get; set; }
+        public string Name { get; init; }
+        public int Grade { get; init; }
+        public string Type { get; init; }
+        public int HoursPerWeek { get; init; }
         public int TotalHours => CalculateTotalHours();
 
 

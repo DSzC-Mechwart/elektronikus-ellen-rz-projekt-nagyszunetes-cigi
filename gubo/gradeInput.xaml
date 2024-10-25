@@ -4,7 +4,60 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="Jegy Bevitel" Height="450" Width="800">
+    
+    <Window.Resources>
+        <Style TargetType="TabItem">
+            <Setter Property="Background" Value="#424242"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="10,2"/>
+            <Setter Property="BorderThickness" Value="0,0,1,0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TabItem">
+                        <Grid x:Name="Panel">
+                            <Border 
+                                x:Name="Border" 
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="1" 
+                                CornerRadius="2,2,0,0">
+                                
+                                <ContentPresenter 
+                                    x:Name="ContentSite"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"
+                                    ContentSource="Header"
+                                    Margin="5,2" 
+                                    RecognizesAccessKey="True"/>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="#626262"/>
+                                <Setter TargetName="Border" Property="BorderBrush" Value="#626262"/>
+                            </Trigger>
+
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Foreground" Value="Gray"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Background" Value="#626262"/>
+                    <Setter Property="Foreground" Value="White"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    
     <Grid Background="#424242">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -12,31 +65,43 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Grid.Column="0">
-            <Label Content="Válassz egy tanulót: " FontWeight="Bold" FontSize="18" Foreground="White"></Label>
-            <ComboBox x:Name="tanuloComboBox" Background="#424242" Width="250" Height="20" HorizontalAlignment="Left" SelectionChanged="tanuloComboBox_SelectionChanged"></ComboBox>
-            <Label Content="Válassz egy tantárgyat: " FontWeight="Bold" FontSize="18" Foreground="White"></Label>
-            <ComboBox x:Name="tantargyComboBox" Background="#424242" Width="250" Height="20" HorizontalAlignment="Left"></ComboBox>
+        
+        <StackPanel Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center">
+            <Label Content="Válassz egy tanulót: " FontWeight="Bold" FontSize="18" Foreground="White"/>
+            <ComboBox x:Name="StudentComboBox" Background="#424242" Width="250" Height="20" HorizontalAlignment="Left" SelectionChanged="tanuloComboBox_SelectionChanged"/>
+            <Label Content="Válassz egy tantárgyat: " FontWeight="Bold" FontSize="18" Foreground="White"/>
+            <ComboBox x:Name="SubjectComboBox" Background="#424242" Width="250" Height="20" HorizontalAlignment="Left" SelectionChanged="SubjectComboBox_OnSelectionChanged"/>
         </StackPanel>
+        
         <StackPanel Grid.Row="1" Grid.Column="0">
-            <Label Foreground="White" Content="Jegy: "></Label>
-            <TextBox x:Name="jegyTextBox" PreviewTextInput="FilterToOnlyNumbers_OnPreviewTextInput"/>
-            <Label Foreground="White" Content="Tantárgy: "></Label>
-            <TextBox x:Name="temaTextBox"/>
-            <Label Foreground="White" Content="Egyéb: "></Label>
-            <TextBox x:Name="tipusTextBox"/>
+            <StackPanel Margin="0, 5">
+                <Label Foreground="White" Content="Jegy: " />
+                <TextBox x:Name="GradeTextBox" Foreground="White" Background="#424242" PreviewTextInput="FilterToOnlyNumbers_OnPreviewTextInput" />
+            </StackPanel>
+            <StackPanel Margin="0, 5">
+                <Label Foreground="White" Content="Téma: "/>
+                <TextBox x:Name="ThemeTextBox" Foreground="White" Background="#424242"/>
+            </StackPanel>
+            <StackPanel Margin="0, 5">
+                <Label Foreground="White" Content="Típus: "/>
+                <TextBox x:Name="TypeTextBox" Foreground="White" Background="#424242"/>
+            </StackPanel>
         </StackPanel>
-        <Button Grid.Column="0" Grid.Row="2" Background="#424242" Foreground="White" Content="Jegy bevitele" HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Width="100" Click="Button_Click_1"></Button>
-        <Button Grid.Column="0" Grid.Row="2" Background="#424242" Foreground="White" Content="Vissza" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="50" Width="100" Click="Button_Click"></Button>
-        <DataGrid x:Name="jegyekDataGrid" Grid.Column="1" Grid.Row="1">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Jegy" Binding="{Binding Jegy}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Tantárgy" Binding="{Binding Theme}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Egyéb" Binding="{Binding GradeType}"></DataGridTextColumn>
-            </DataGrid.Columns>
-        </DataGrid>
+        
+        <Button Grid.Column="0" Grid.Row="2" Background="#424242" Foreground="White" Content="Jegy bevitele" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="50" Width="100" Click="AddGradeButton_Click"/>
+        
+        <Button Grid.Column="0" Grid.Row="2" Background="#424242" Foreground="White" Content="Vissza" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="50" Width="100" Click="BackButton_OnClick"/>
+        
+        <TabControl
+            Grid.Row="0"
+            Grid.Column="1"
+            Grid.RowSpan="3"
+            Name="SubjectTabs"
+            BorderBrush="White"
+            Background="#424242"
+            VerticalAlignment="Top"/>
     </Grid>
 </Window>

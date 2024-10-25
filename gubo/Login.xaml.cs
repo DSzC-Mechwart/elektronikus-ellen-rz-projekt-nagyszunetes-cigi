@@ -44,7 +44,7 @@ namespace KretaKlon.gubo
             {
                 if (Tanulo == item[0])
                 {
-                    if (item[1] == textBox.Text)
+                    if (item[1] == PasswordTextBox.Text)
                     {
                         this.Close();
                     }

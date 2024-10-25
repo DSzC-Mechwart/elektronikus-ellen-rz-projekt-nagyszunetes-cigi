@@ -1,0 +1,46 @@
+﻿<Window x:Class="KretaKlon.gubo.studentSelector"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        ResizeMode="CanMinimize"
+        WindowStartupLocation="CenterScreen"
+        Title="studentSelector" Height="300" Width="300">
+    <Grid Background="#424242">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <Label 
+            Grid.Row="1" 
+            Content="Válassz Diákot!" 
+            FontSize="30" 
+            Foreground="White" 
+            HorizontalAlignment="Center"/>
+        
+        <ComboBox 
+            Grid.Row="3" 
+            Name="StudentComboBox"
+            Background="#424242"
+            SelectionChanged="StudentComboBox_OnSelectionChanged"/>
+        
+        <Button 
+            Grid.Row="5"
+            Name="SelectButton"
+            IsEnabled="False"
+            BorderThickness="2" 
+            Foreground="White" 
+            Content="Kiválasztás" 
+            BorderBrush="White"
+            Background="#424242" 
+            Click="SelectButton_OnClick"/>
+    </Grid>
+</Window>

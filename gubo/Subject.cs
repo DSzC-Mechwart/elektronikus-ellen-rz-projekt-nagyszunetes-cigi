@@ -1,23 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace KretaKlon.gubo
+﻿namespace KretaKlon.gubo
 {
-    class Subject
-    {
-        public List<Grade> Grades = new List<Grade>();
-        public string Nev;
-        public Subject(string nev)
-        {
-            Nev = nev;
-            Grades = new List<Grade>();
-        }
-        public void Jegy(Grade Jegy)
-        {
-            Grades.Append(Jegy);
-        }
+    public class Subject(string name, GradeClass? grade = null) {
+        public readonly List<GradeClass> Grades = grade != null ? [grade] : [];
+        public string Name = name;
     }
 }
